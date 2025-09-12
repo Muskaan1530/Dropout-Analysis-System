@@ -12,7 +12,7 @@
 - Our solution focuses on predicting at-risk students early and providing preventive measures to improve retention rates.
 
 
-## ** 🚀Solution Overview**
+## 🚀Solution Overview
 
 - Build an AI/ML model to analyze student data (academic performance, attendance, socio-economic background, etc.)
 - Predict which students are at risk of dropping out
