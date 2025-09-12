@@ -1,49 +1,50 @@
-#**Dropout-Analysis-System**
-##**🎓Project Title**
-EduCare – AI-Powered Student Dropout Prediction & Prevention System
+# **Dropout-Analysis-System**
 
-##**📌Problem Statement**
+## **🎓Project Title**
+- EduCare – AI-Powered Student Dropout Prediction & Prevention System
 
--Student dropout is a major challenge in education.
--Many students leave due to financial, academic, and psychological reasons. 
--Our solution focuses on predicting at-risk students early and providing preventive measures to improve retention rates.
+## **📌Problem Statement**
 
-##** 🚀Solution Overview**
+- Student dropout is a major challenge in education.
+- Many students leave due to financial, academic, and psychological reasons. 
+- Our solution focuses on predicting at-risk students early and providing preventive measures to improve retention rates.
 
--Build an AI/ML model to analyze student data (academic performance, attendance, socio-economic background, etc.)
--Predict which students are at risk of dropping out
--Provide preventive interventions (counseling, mentorship, financial aid suggestions, etc.)
--Dashboard for teachers/admins to track student risk level
+## ** 🚀Solution Overview**
 
-##**📊Features**
+- Build an AI/ML model to analyze student data (academic performance, attendance, socio-economic background, etc.)
+- Predict which students are at risk of dropping out
+- Provide preventive interventions (counseling, mentorship, financial aid suggestions, etc.)
+- Dashboard for teachers/admins to track student risk level
 
--Student risk prediction using ML
--Visualization dashboard for insights
--Personalized recommendations for at-risk students
--Data-driven decision making for institutions
+## **📊Features**
 
-##**🛠Tech Stack**
+- Student risk prediction using ML
+- Visualization dashboard for insights
+- Personalized recommendations for at-risk students
+- Data-driven decision making for institutions
+
+## **🛠Tech Stack**
 
 - **Frontend:** React.js  
 - **Backend:** Node.js / Express  
 - **Database:** MongoDB / MySQL  
 - **ML Module:** Python (Scikit-learn / Pandas)
 
-##**🤝Future Scope**
+## **🤝Future Scope**
 
--Integration with LMS (Learning Management Systems)
--Real-time monitoring with live student data
--SMS/Email alerts for parents & students
--Explainable AI (why a student is predicted at risk)
+- Integration with LMS (Learning Management Systems)
+- Real-time monitoring with live student data
+- SMS/Email alerts for parents & students
+- Explainable AI (why a student is predicted at risk)
 
-##**👥Contributors**
+## **👥Contributors**
 
--Muskaan Kumari
--Saloni Kumari
--shubhi Tiwari
--Rinki Ray
--Shikha Tiwari
--Shweta Rani
+- Muskaan Kumari
+- Saloni Kumari
+- shubhi Tiwari
+- Rinki Ray
+- Shikha Tiwari
+- Shweta Rani
 
 
 
