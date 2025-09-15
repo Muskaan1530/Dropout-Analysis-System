@@ -26,4 +26,4 @@ function Hero() {
 
 export default Hero;
 
-https://github.com/Muskaan1530/Dropout-Analysis-System.git
+//https://github.com/Muskaan1530/Dropout-Analysis-System.git
