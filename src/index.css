@@ -1,13 +1,157 @@
-body {
+/* Reset styles */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #121212;   /* Dark background */
+  color: #facc15;             /* Yellow text */
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+  background: #1f1f1f;
+  padding: 2px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #facc15;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffd54f;
+}
+
+/* Desktop Menu */
+.desktop-menu {
+  display: none;
+}
+
+.logo img{
+  height:70px;
+  width:auto;
+}
+
+@media (min-width: 768px) {
+  .desktop-menu {
+    display: flex;
+  }
+  .menu-btn {
+    display: none;
+  }
+}
+
+/* Mobile Menu */
+.menu-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #facc15;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: block;
+  background: #1f1f1f;
+  padding: 10px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  border-radius: 5px;
+  color: #facc15;
+  
+}
+
+.mobile-menu li {
+  margin: 10px 0;
+}
+
+/* Hero Section */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0px;
+  text-align: center;
+}
+
+
+.hero-text {
+  max-width: 600px;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #fcd34d;
+}
+
+section .highlight {
+  color: #facc15;
+  
+}
+
+section p {
+  color: #fcd34d;
+  margin-bottom: 20px;
+}
+
+section button {
+  background: #facc15;
+  color: #121212;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+section button:hover {
+  background: #ffd54f;
+}
+
+/* Hero Image */
+.image img{
+  margin-top: 0px;
+  max-width: 600px;
+  margin-left: 100%;
+
+
+ 
+}
+
+/* Footer */
+footer {
+  background: #1f1f1f;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  font-size: 0.9rem;
 }
