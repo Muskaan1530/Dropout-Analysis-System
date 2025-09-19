@@ -1,103 +1,131 @@
-// src/components/AdminDashboard.js
-// src/components/AdminDashboard.js
-// src/components/AdminDashboard.js
 import React from 'react';
+import { Bar, Doughnut } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+ChartJS.defaults.font.family = "'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif";
+ChartJS.defaults.color = '#555';
+
 
 function AdminDashboard({ onLogout }) {
-  // 10 छात्रों का विस्तृत डेटा
-  const studentData = [
-    { id: 1, enrollmentNo: "08501182024", name: "Rinki Kumari", risk: "High", attendance: 68, scoreTrend: -12, attempts: 3, feeStatus: "Due" },
-    { id: 2, enrollmentNo: "1740872025", name: "Rahul Singh", risk: "Medium", attendance: 78, scoreTrend: -5, attempts: 2, feeStatus: "Paid" },
-    { id: 3, enrollmentNo: "03214562024", name: "Sheweta Rani", risk: "High", attendance: 71, scoreTrend: -18, attempts: 4, feeStatus: "Due" },
-    { id: 4, enrollmentNo: "9870442025", name: "Amit Sharma", risk: "Low", attendance: 92, scoreTrend: 8, attempts: 1, feeStatus: "Paid" },
-    { id: 5, enrollmentNo: "11507892024", name: "Kavita Meena", risk: "Medium", attendance: 81, scoreTrend: -2, attempts: 1, feeStatus: "Due" },
-    { id: 6, enrollmentNo: "4421882025", name: "Saloni Kumari", risk: "Low", attendance: 95, scoreTrend: 10, attempts: 1, feeStatus: "Paid" },
-    { id: 7, enrollmentNo: "20101152024", name: "Muskaan Kumari", risk: "High", attendance: 65, scoreTrend: -25, attempts: 3, feeStatus: "Paid" },
-    { id: 8, enrollmentNo: "75309512025", name: "Shikha Tiwari", risk: "Medium", attendance: 76, scoreTrend: 0, attempts: 2, feeStatus: "Paid" },
-    { id: 9, enrollmentNo: "85205822024", name: "Shubhi Tiwari", risk: "Low", attendance: 98, scoreTrend: 12, attempts: 1, feeStatus: "Paid" },
-    { id: 10, enrollmentNo: "36901472025", name: "Sandeep Yadav", risk: "High", attendance: 72, scoreTrend: -15, attempts: 2, feeStatus: "Due" },
-  ];
-  
-  // Stats calculate karna
-  const totalStudents = studentData.length;
-  const atRiskCount = studentData.filter(s => s.risk === 'High' || s.risk === 'Medium').length;
-  const pendingFeesCount = studentData.filter(s => s.feeStatus === 'Due').length;
-  const pendingFeesAmount = (pendingFeesCount * 30000).toLocaleString('en-IN');
-  const highRiskCount = studentData.filter(s => s.risk === 'High').length;
-  const mediumRiskCount = studentData.filter(s => s.risk === 'Medium').length;
-  const lowRiskCount = studentData.filter(s => s.risk === 'Low').length;
+  // Stats Data
+  const totalStudents = 1500;
+  const atRiskStudents = 250;
+  const criticalAlerts = 15;
+
+  // --- बार चार्ट का डेटा (अब अलग-अलग रंगों के साथ) ---
+  const barChartData = {
+    labels: ['Engineering', 'Arts & Sciences', 'Business', 'Medical', 'IT'],
+    datasets: [
+      {
+        label: 'At-Risk Students',
+        data: [40, 65, 30, 22, 35],
+        // हर बार के लिए अलग रंग
+        backgroundColor: [
+            'rgba(38, 131, 182, 0.8)',  // Blue
+            'rgba(214, 68, 68, 0.8)', // Red
+            'rgba(237, 175, 59, 0.8)', // Yellow
+            'rgba(109, 204, 141, 0.8)', // Green
+            'rgba(132, 98, 225, 0.8)'  // Purple
+        ],
+        borderColor: [
+            '#093f5cff',
+            '#542020ff',
+            '#684504ff',
+            '#144825ff',
+            '#3c315bff'
+        ],
+        borderWidth: 1,
+        borderRadius: 4,
+      },
+    ],
+  };
+  const barChartOptions = {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'At-Risk Students by Department', font: { size: 16 } },
+    },
+    scales: {
+      y: { grid: { color: '#eef2f7' } },
+      x: { grid: { display: false } }
+    }
+  };
+
+  // --- पाई चार्ट का डेटा ---
+  const pieChartData = {
+    labels: ['Academic', 'Attendance', 'Behavioral', 'Financial'],
+    datasets: [{
+      data: [40, 25, 15, 20],
+      backgroundColor: ['#1c5471ff', '#8d2828ff', '#cd9630ff', '#37704aff'],
+      borderColor: '#ffffff',
+      borderWidth: 4,
+      hoverOffset: 8,
+    }]
+  };
+  const pieChartOptions = {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '60%',
+    plugins: {
+      legend: { position: 'right', labels: { boxWidth: 15, padding: 15 } },
+      title: { display: true, text: 'Risk Factor Breakdown', font: { size: 16 } },
+    }
+  };
 
   return (
-    <div className="dashboard-container merged-dashboard">
+    <div className="dashboard-container">
       <header className="dashboard-header">
-        <div className="dashboard-header-content">
-          <h1>Admin/Mentor Dashboard</h1>
+          <h1>Student Success System</h1>
           <div className="user-info">
-            <span className="user-name">Welcome, Admin!</span>
+            <span>Welcome, Admin!</span>
             <button onClick={onLogout} className="logout-btn">Logout</button>
           </div>
-        </div>
       </header>
       
       <div className="stat-cards-container">
         <div className="stat-card">
           <h2>Total Students</h2>
-          <p className="highlight-text">{totalStudents} <span className="sub-info">({atRiskCount} at-risk)</span></p>
+          <p className="stat-value">{totalStudents}</p>
         </div>
         <div className="stat-card">
-          <h2>Pending Fees</h2>
-          <p className="highlight-text">₹ {pendingFeesAmount} <span className="sub-info">({pendingFeesCount} Students Due)</span></p>
+          <h2>Students at Risk</h2>
+          <p className="stat-value">{atRiskStudents}</p>
         </div>
-        <div className="stat-card">
-          <h2>Upcoming Deadlines</h2>
-          <p className="highlight-text">12 <span className="sub-info">(Assignments/Exams)</span></p>
+        <div className="stat-card critical-alerts-card">
+          <h2>Critical Alerts</h2>
+          <p className="stat-value">{criticalAlerts}</p>
         </div>
       </div>
 
-      <div className="overview-section">
-        <h2>Institute Overview</h2>
-        <div className="overview-grid">
-            <div className="overview-item">
-                <span className="overview-label">High Risk 🔴</span>
-                <span className="overview-value text-red">{highRiskCount}</span>
-            </div>
-            <div className="overview-item">
-                <span className="overview-label">Medium Risk 🟡</span>
-                <span className="overview-value text-yellow">{mediumRiskCount}</span>
-            </div>
-            <div className="overview-item">
-                <span className="overview-label">Low Risk 🟢</span>
-                <span className="overview-value text-green">{lowRiskCount}</span>
-            </div>
+      <div className="main-content-grid">
+        <div className="section-card bar-chart-card">
+          <div className="chart-container">
+            <Bar data={barChartData} options={barChartOptions} />
+          </div>
         </div>
-      </div>
-
-      <div className="dashboard-main-content">
-        <div className="section-card student-list-card">
-          <h2>At-Risk Student List (Action Center)</h2>
-          <ul className="detailed-list">
-            {studentData.map(student => (
-              <li key={student.id} className={'list-item-risk-${student.risk.toLowerCase()}'}>
-                <div className="student-info">
-                  <span className={'risk-indicator ${student.risk.toLowerCase()}'}></span>
-                  <span className="enrollment-no">{student.enrollmentNo}</span>
-                  <span className="student-name">{student.name}</span>
-                </div>
-                <div className="student-metrics">
-                  <span>Attd: <b className={student.attendance < 75 ? 'text-red' : 'text-green'}>{student.attendance}%</b></span>
-                  <span>Trend: <b className={student.scoreTrend < 0 ? 'text-red' : 'text-green'}>{student.scoreTrend}%</b></span>
-                  <span>Attempts: <b>{student.attempts}</b></span>
-                  <span>Fees: <b className={student.feeStatus === 'Due' ? 'text-red' : 'text-green'}>{student.feeStatus}</b></span>
-                </div>
-                <div className="student-actions">
-                  <button className="action-btn view-profile">View Profile</button>
-                  <button className="action-btn notify">Notify</button>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div className="section-card pie-chart-card">
+          <div className="chart-container">
+            <Doughnut data={pieChartData} options={pieChartOptions} />
+          </div>
         </div>
-        
         <div className="section-card admin-tools-card">
             <h2>Administrative Tools</h2>
             <ul className="admin-tools-list">

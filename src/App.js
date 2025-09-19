@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 import AdminDashboard from './components/AdminDashboard';
 import StudentDashboard from './components/StudentDashboard';
+//import Model from './components/Modal';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

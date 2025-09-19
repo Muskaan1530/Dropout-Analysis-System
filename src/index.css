@@ -551,7 +551,7 @@ background-color: rgba(0, 0, 0, 0.3); /*Halki si black transparent background*/
 /* Section 2: Performance Snapshot */
 .performance-snapshot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
 .snapshot-main { text-align: left; flex-grow: 1; }
-.snapshot-label { display: block; font-size: 1rem; color: #92400E; margin-bottom: 8px; font-weight: bold; }
+.snapshot-label { display: block; font-size: 1rem; color: rgb(93, 92, 92); margin-bottom: 8px; font-weight: bold; }
 .snapshot-status { font-size: 1.5rem; font-weight: 700; }
 .snapshot-secondary { display: flex; gap: 40px; text-align: left; }
 .snapshot-value { font-size: 1.5rem; font-weight: 700; color: #343a40; }
@@ -607,3 +607,230 @@ background-color: rgba(0, 0, 0, 0.3); /*Halki si black transparent background*/
 .status-red { color: #dc3545; }
 .status-yellow { color: #ffc107; }
 .status-green { color: #28a745; }
+
+/* ================================= */
+/* ====== MODAL (POPUP) STYLES ===== */
+/* ================================= */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.modal-content {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #aaa;
+  cursor: pointer;
+}
+.modal-close-btn:hover { color: #333; }
+.modal-header { border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
+.modal-header h2 { margin: 0; color: #c54141; }
+.modal-body p { line-height: 1.6; color: #555; }
+.modal-body a { color: #c54141; font-weight: 600; }
+
+/* ======================================= */
+/* ====== MENTOR FORM & FEEDBACK STYLES === */
+/* ======================================= */
+.modal-body .form-group { margin-bottom: 20px; text-align: left; }
+.modal-body label { display: block; margin-bottom: 8px; font-weight: 600; color: #495057; }
+.modal-body input, .modal-body select, .modal-body textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; }
+.modal-body button[type="submit"] { width: 100%; margin-top: 10px; }
+.modal-body button[type="submit"]:disabled { background-color: #e0a800; cursor: not-allowed; }
+
+.modal-feedback { text-align: center; padding: 20px 0; }
+.modal-feedback .icon { width: 80px; height: 80px; border-radius: 50%; background-color: #28a745; color: white; font-size: 3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; animation: popIn 0.3s ease-out; }
+@keyframes popIn { from { transform: scale(0.5); } to { transform: scale(1); } }
+.modal-feedback h2 { color: #28a745; margin-bottom: 10px; }
+.modal-feedback p { color: #6c757d; margin-bottom: 25px; }
+
+/* ============================================== */
+/* ====== COUNSELING & MOTIVATIONAL STYLES ====== */
+/* ============================================== */
+
+/* Counseling Services Styles */
+.counseling-info h4 {
+  color: #333;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-left: 4px solid #c54141;
+  padding-left: 10px;
+}
+.counseling-info ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+.counseling-info li {
+  margin-bottom: 8px;
+  color: #555;
+}
+.counselor-contact {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+}
+.counselor-contact p {
+  margin: 5px 0;
+}
+.counselor-contact a {
+  text-decoration: none;
+}
+.counselor-contact a:hover {
+  text-decoration: underline;
+}
+
+/* Motivational Hub Styles */
+.resource-list {
+  margin-top: 20px;
+}
+.resource-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.resource-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.resource-icon {
+  font-size: 2rem;
+  margin-right: 20px;
+}
+.resource-text strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+}
+.resource-text p {
+  margin: 0;
+  color: #666;
+}
+
+
+.subject-display {
+  padding: 12px;
+  background-color: #e9ecef; 
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight:480;
+   color: #212529;
+}
+/* --- Main Layout --- */
+.dashboard-container {
+  padding: 24px;
+  background-color: #f8f9fa; /* Slightly changed background color */
+}
+
+.section-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  /* Softer, more realistic shadow */
+  box-shadow: 0 8px 24px rgba(149, 157, 165, 0.1);
+  border: 1px solid #eef2f7;
+}
+
+/* --- Stat Cards (Top Section) --- */
+.stat-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.stat-card h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5a6a7e;
+  margin-bottom: 8px;
+}
+.stat-card .stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.critical-alerts-card {
+  background: linear-gradient(45deg, #620b0b, #ec5a5a);
+  color: white;
+}
+.critical-alerts-card h2, .critical-alerts-card .stat-value {
+  color: white;
+}
+
+/* --- Main Grid (Charts & Tools) --- */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.2fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.chart-container {
+  height: 280px; 
+}
+
+/* --- Admin Tools Section --- */
+.admin-tools-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.admin-tools-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tool-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.tool-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #43A1D4;
+  color: #43A1D4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 161, 212, 0.1);
+}
