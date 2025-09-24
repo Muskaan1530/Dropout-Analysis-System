@@ -62,7 +62,7 @@ nav ul li a:hover {
     display: flex;
   }
   .menu-btn {
-    display: none;
+  display:none; 
   }
 }
 
@@ -107,7 +107,7 @@ nav ul li a:hover {
 }
 
  .hero-text h1{
-   font-size:xx-large;
+   font-size: 55px;
   margin-bottom: 15px;
   color: #fcd34d;
 }
@@ -122,7 +122,7 @@ section .highlight {
   color: #fcd34d;
   margin-bottom: 20px;
   padding-bottom: 2px;
-  font-size: larger;
+  font-size: 25px;
 }
 
 .get-started-btn {
@@ -143,7 +143,7 @@ section .highlight {
 
 /* Hero Image */
 .hero-image img{
-  margin-bottom: 2px;
+  margin-bottom: 10px;
   max-width: 600px;
   margin-left: 100%;
 
@@ -834,3 +834,1319 @@ background-color: rgba(0, 0, 0, 0.3); /*Halki si black transparent background*/
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(67, 161, 212, 0.1);
 }
+
+.chart-card {
+ 
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  flex: 1;
+  min-width: 300px;
+  height: 350px; /* <<-- यह लाइन जोड़ें -->> */
+  display: flex; /* <<-- यह लाइन जोड़ें -->> */
+  flex-direction: column; /* <<-- यह लाइन जोड़ें -->> */
+  justify-content: center; /* <<-- यह लाइन जोड़ें -->> */
+} 
+/* कृपया इस CSS कोड का उपयोग करें */
+.charts-container {
+  display: flex; /* यह चार्ट्स को एक लाइन में लाता है */
+  gap: 40px;
+  margin-bottom: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.chart-card {
+  flex: 1; /* यह दोनों को बराबर जगह देता है */
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  
+  
+  /* साइज़ को कंट्रोल करने के लिए height और width सेट करें */
+  max-height: 320px; /* ऊँचाई को सीमित करें */
+  min-width: 0; /* फ्लेक्सबॉक्स के लिए ज़रूरी */
+}
+
+/* --- About Us Page Styling --- */
+:root {
+  --section-dark: #212121; /* A light gray for alternating sections */
+}
+
+.about-us-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+.about-us-header {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: var(--background-light);
+}
+
+.about-us-header h1 {
+  font-size: clamp(1rem, 3vw, 3rem);
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.about-us-header p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-us-story,
+.about-us-impact {
+  padding: 60px 20px;
+  background-color: var(--section-dark);
+  text-align: center;
+}
+
+.story-content,
+.impact-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-us-story h2,
+.about-us-values h2,
+.about-us-impact h2,
+.about-us-cta h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+.story-content p,
+.impact-content p {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-us-values {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background-color: var(--background-card);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid var(--secondary-color);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.value-card h3 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  color: var(--text-muted);
+}
+
+.about-us-cta {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #c9e0f6;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background: var(--secondary-color);
+  color: var(--text-light);
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.cta-button:hover {
+  background: #3f8a65;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--background-card);
+  margin: 50px 0;
+}
+
+@media (max-width: 768px) {
+  .about-us-story,
+  .about-us-story-reverse {
+    flex-direction: column;
+  }
+  .about-us-header h1 {
+    font-size: 2rem;
+  }
+  .about-us-story h2,
+  .about-us-values h2,
+  .about-us-impact h2,
+  .about-us-cta h2 {
+    font-size: 2rem;
+  }
+  .value-card h3 {
+    font-size: 1.2rem;
+  }
+  .value-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* src/components/Contact.css */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+.contact-header {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.contact-header h1 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.contact-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.mentor-section, .general-contact-and-form {
+  background-color: var(--background-card);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.mentor-section h2, .general-contact-and-form h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid #E9ECEF;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.mentor-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mentor-card {
+  border: 1px solid #D1D8DD;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mentor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.mentor-name {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.mentor-role {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.mentor-details p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.linkedin-link {
+  color: #43A1D4;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.linkedin-link:hover {
+  text-decoration: underline;
+}
+
+.general-contact-info p {
+  margin-top: 10px;
+}
+
+.contact-form-section {
+  margin-top: 30px;
+}
+
+.contact-form-section h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 15px;
+}
+
+.contact-form-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.contact-input, .contact-textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: palegoldenrod;
+  border: 1px solid brown;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.contact-input:focus, .contact-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.contact-button {
+  background-color: brown;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.contact-button:hover {
+  background-color: green;
+}
+
+/* Services Page Styles */
+.services-container {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.service-card {
+  background-color: #212121;
+  padding: 40px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  border-color: #facc15;
+}
+
+.service-icon {
+  background-color: #facc15;
+  color: #121212;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: rotate(15deg);
+}
+
+.service-card h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: #a0a0a0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Chatbot Styles */
+.chatbot-container {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.chatbot-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatbot-header {
+  background-color: #facc15;
+  color: #121212;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.chatbot-icon {
+  width: 35px;
+  height: 35px;
+  color: #121212;
+}
+
+.chatbot-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.chatbot-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chat-bubble {
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 80%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.chat-bubble.user {
+  background-color: #facc15;
+  color: #121212;
+  align-self: flex-end;
+}
+
+.chat-bubble.bot {
+  background-color: #333;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.chatbot-input {
+  display: flex;
+  padding: 15px;
+  background-color: #1f1f1f;
+  border-top: 1px solid #333;
+}
+
+.input-field {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #555;
+  border-radius: 25px;
+  background-color: #121212;
+  color: #facc15;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: #a0a0a0;
+}
+
+.send-btn {
+  background-color: #facc15;
+  color: #121212;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.send-btn:hover {
+  background-color: #ffd54f;
+}
+
+.send-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+  .chatbot-box {
+    width: 95%;
+  }
+
+  .chat-bubble {
+    max-width: 90%;
+  }
+}
+
+/* src/components/ManageAttendance.css */
+
+.attendance-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  color: #343a40;
+}
+
+.attendance-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #E9ECEF;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.attendance-page-header h1 {
+  color: #1F3A60;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.back-btn {
+  background-color: #1F3A60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #1A304F;
+}
+
+.filter-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.filter-section select {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.add-student-form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.add-student-form-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.add-student-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.add-student-form input,
+.add-student-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.add-btn {
+  background-color: #4A9D79;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #3f8a65;
+}
+
+.attendance-table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.attendance-table-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-table th {
+  background-color: #E9ECEF;
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+}
+
+.attendance-table td {
+  text-align: center;
+}
+
+.attendance-table tr:hover {
+  background-color: #f6f6f6;
+}
+
+.attendance-input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 0.9rem;
+}
+
+.status-pass {
+  color: #2ECC71;
+  font-weight: bold;
+}
+
+.status-fail {
+  color: #E74C3C;
+  font-weight: bold;
+}
+
+.edit-btn, .save-btn, .cancel-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin-right: 5px;
+}
+
+.edit-btn {
+  background-color: #1A73E8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.save-btn {
+  background-color: #4A9D79;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #3f8a65;
+}
+
+.cancel-btn {
+  background-color: #E74C3C;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* src/components/FeeReports.css */
+.fee-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  color: #343a40;
+}
+
+.fee-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #E9ECEF;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.fee-page-header h1 {
+  color: #1F3A60;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.back-btn {
+  background-color: #1F3A60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #1A304F;
+}
+
+.filter-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.filter-section select {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.add-fee-record-form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.add-fee-record-form-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.add-fee-record-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.add-fee-record-form input,
+.add-fee-record-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.add-btn {
+  background-color: #4A9D79;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #3f8a65;
+}
+
+.fee-records-table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.fee-records-table-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.fee-records-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.fee-records-table th,
+.fee-records-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.fee-records-table th {
+  background-color: #E9ECEF;
+  font-weight: 600;
+  color: #555;
+  text-align: left;
+}
+
+.fee-records-table tr:hover {
+  background-color: #f6f6f6;
+}
+
+.status-paid {
+  color: #2ECC71; /* Green color for paid status */
+  font-weight: bold;
+}
+
+.status-unpaid {
+  color: #E74C3C; /* Red color for unpaid status */
+  font-weight: bold;
+}
+
+.fee-records-table td input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.edit-btn, .save-btn, .cancel-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin-right: 5px;
+}
+
+.edit-btn {
+  background-color: #1A73E8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.save-btn {
+  background-color: #4A9D79;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #3f8a65;
+}
+
+.cancel-btn {
+  background-color: #E74C3C;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* src/components/StudentMarks.css */
+.marks-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa; /* Consistent light background */
+  font-family: 'Poppins', sans-serif;
+  color: #343a40;
+}
+
+.marks-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #E9ECEF;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.marks-page-header h1 {
+  color: #1F3A60; /* Consistent primary color */
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.back-btn {
+  background-color: #1F3A60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #1A304F;
+}
+
+.filter-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.filter-section select {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.add-student-form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.add-student-form-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.add-student-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.add-student-form input,
+.add-student-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.add-btn {
+  background-color: #4A9D79;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #3f8a65;
+}
+
+.marks-table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.marks-table-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.marks-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.marks-table th,
+.marks-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.marks-table th {
+  background-color: #E9ECEF;
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+}
+
+.marks-table td {
+  text-align: center;
+}
+
+.marks-table tr:hover {
+  background-color: #f6f6f6;
+}
+
+.marks-input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 0.9rem;
+}
+
+.marks-pass {
+  color: #2ECC71; /* Green for pass */
+  font-weight: bold;
+}
+
+.marks-fail {
+  color: #E74C3C; /* Red for fail */
+  font-weight: bold;
+}
+
+.edit-btn, .save-btn, .cancel-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin-right: 5px;
+}
+
+.edit-btn {
+  background-color: #1A73E8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.save-btn {
+  background-color: #4A9D79;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #3f8a65;
+}
+
+.cancel-btn {
+  background-color: #E74C3C;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+.marks-table td input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* src/components/ExtraCurricularRecords.css */
+
+.extracurricular-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  color: #343a40;
+}
+
+.extracurricular-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #E9ECEF;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.extracurricular-page-header h1 {
+  color: #1F3A60;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.back-btn {
+  background-color: #1F3A60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #1A304F;
+}
+
+.add-record-form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.add-record-form-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.add-record-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.add-record-form input,
+.add-record-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.add-btn {
+  background-color: #4A9D79;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #3f8a65;
+}
+
+.filter-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.filter-section select {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.extracurricular-table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.extracurricular-table-container h2 {
+  color: #1F3A60;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.extracurricular-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.extracurricular-table th,
+.extracurricular-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.extracurricular-table th {
+  background-color: #E9ECEF;
+  font-weight: 600;
+  color: #555;
+}
+
+.extracurricular-table td a {
+  color: #1A73E8;
+  text-decoration: none;
+}
+
+.extracurricular-table td a:hover {
+  text-decoration: underline;
+}
+
+.extracurricular-table tr:hover {
+  background-color: #f6f6f6;
+}
+
+.edit-btn, .save-btn, .cancel-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin-right: 5px;
+}
+
+.edit-btn {
+  background-color: #1A73E8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.save-btn {
+  background-color: #4A9D79;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #3f8a65;
+}
+
+.cancel-btn {
+  background-color: #E74C3C;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+.extracurricular-table td input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+

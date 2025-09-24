@@ -25,7 +25,7 @@ ChartJS.defaults.font.family = "'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial',
 ChartJS.defaults.color = '#555';
 
 
-function AdminDashboard({ onLogout }) {
+function AdminDashboard({ onLogout, setCurrentPage }) { // Add setCurrentPage to props
   // Stats Data
   const totalStudents = 1500;
   const atRiskStudents = 250;
@@ -40,18 +40,18 @@ function AdminDashboard({ onLogout }) {
         data: [40, 65, 30, 22, 35],
         // हर बार के लिए अलग रंग
         backgroundColor: [
-            'rgba(38, 131, 182, 0.8)',  // Blue
-            'rgba(214, 68, 68, 0.8)', // Red
-            'rgba(237, 175, 59, 0.8)', // Yellow
-            'rgba(109, 204, 141, 0.8)', // Green
-            'rgba(132, 98, 225, 0.8)'  // Purple
+          'rgba(38, 131, 182, 0.8)',  // Blue
+          'rgba(214, 68, 68, 0.8)', // Red
+          'rgba(237, 175, 59, 0.8)', // Yellow
+          'rgba(109, 204, 141, 0.8)', // Green
+          'rgba(132, 98, 225, 0.8)'  // Purple
         ],
         borderColor: [
-            '#093f5cff',
-            '#542020ff',
-            '#684504ff',
-            '#144825ff',
-            '#3c315bff'
+          '#093f5cff',
+          '#542020ff',
+          '#684504ff',
+          '#144825ff',
+          '#3c315bff'
         ],
         borderWidth: 1,
         borderRadius: 4,
@@ -93,13 +93,13 @@ function AdminDashboard({ onLogout }) {
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
-          <h1>Student Success System</h1>
-          <div className="user-info">
-            <span>Welcome, Admin!</span>
-            <button onClick={onLogout} className="logout-btn">Logout</button>
-          </div>
+        <h1>Student Success System</h1>
+        <div className="user-info">
+          <span>Welcome, Admin!</span>
+          <button onClick={onLogout} className="logout-btn">Logout</button>
+        </div>
       </header>
-      
+
       <div className="stat-cards-container">
         <div className="stat-card">
           <h2>Total Students</h2>
@@ -127,13 +127,37 @@ function AdminDashboard({ onLogout }) {
           </div>
         </div>
         <div className="section-card admin-tools-card">
-            <h2>Administrative Tools</h2>
-            <ul className="admin-tools-list">
-                <li><button className="tool-btn">Manage Attendance</button></li>
-                <li><button className="tool-btn">Fee Collection & Reports</button></li>
-                <li><button className="tool-btn">Assignment Tracking</button></li>
-                <li><button className="tool-btn">Communication Hub</button></li>
-            </ul>
+          <h2>Administrative Tools</h2>
+          <ul className="admin-tools-list">
+            <li>
+              <button className="tool-btn"
+              onClick={() => setCurrentPage('ManageAttendance')}
+              >
+                Manage Attendance
+                </button>
+                </li>
+            <li>
+              <button 
+                className="tool-btn"
+                onClick={() => setCurrentPage('FeeReports')} // This will set the state in App.js
+              >
+                Fee Details
+              </button>
+            </li>
+            <li>
+              <button className="tool-btn"
+              onClick={() => setCurrentPage('StudentMarks')}>
+                Student Marks
+              </button>
+              </li>
+            <li>
+              <button className="tool-btn"
+              onClick={() => setCurrentPage('ExtraCurricularRecords')}
+              >
+                Extra Curricular Records 
+              </button>
+              </li>
+          </ul>
         </div>
       </div>
     </div>

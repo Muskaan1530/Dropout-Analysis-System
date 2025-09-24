@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
+import { useInView } from 'react-intersection-observer'; // <-- एनीमेशन के लिए इम्पोर्ट
+
 import Modal from './Modal';
-import CounselingServices from './CounselingServices'; 
-import MotivationalHub from './MotivationalHub';   
-import SpecificMentorForm from './SpecificMentorForm';  
+import CounselingServices from './CounselingServices';
+import MotivationalHub from './MotivationalHub';
+import SpecificMentorForm from './SpecificMentorForm';
+import SubjectBarChart from './SubjectBarChart';
+import AssignmentPieChart from './AssignmentPieChart';
 
 function StudentDashboard({ onLogout }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
   const [submissionStatus, setSubmissionStatus] = useState('idle');
-   const [specificSubject, setSpecificSubject] = useState(null);
+  const [specificSubject, setSpecificSubject] = useState(null);
+
+  // एनीमेशन को कण्ट्रोल करने के लिए useInView हुक
+  const { ref: chartsRef, inView: chartsAreVisible } = useInView({
+    triggerOnce: true, // एनीमेशन सिर्फ एक बार चलेगा
+    threshold: 0.3,    // जब 30% चार्ट दिखेगा तब एनीमेशन शुरू होगा
+  });
 
   const myStatus = {
     courses: 6,
     assignmentsDue: 3,
-    overallGrade: "A",
+    overallGrade: "B",
     status: "ON TRACK",
     attendance: 78,
     averageScore: 65,
@@ -21,13 +31,17 @@ function StudentDashboard({ onLogout }) {
       { name: "Physics", score: 85, status: "Excellent" },
       { name: "Maths", score: 60, status: "On Track" },
       { name: "Chemistry", score: 45, status: "Needs Attention" },
-    ]
+    ],
+    assignmentsStats:{
+      submitted:7,
+      due:3,
+      missed:1,
+    }
   };
 
   const subjectNeedingHelp = myStatus.subjects.find(
     subject => subject.status === "Needs Attention"
   );
-
 
   const getStatusInfo = (status) => {
     if (status === "Needs Attention") return { label: "Needs Attention 🔴", color: "red" };
@@ -40,17 +54,15 @@ function StudentDashboard({ onLogout }) {
     setIsModalOpen(true);
   };
 
-   const openSpecificMentorModal = (subjectName) => {
+  const openSpecificMentorModal = (subjectName) => {
     setSpecificSubject(subjectName);
     openModal('specific_mentor');
   };
 
-
-
   const closeModal = () => {
     setIsModalOpen(false);
     setSubmissionStatus('idle');
-     setSpecificSubject(null);
+    setSpecificSubject(null);
   };
 
   const handleRequestSubmit = (event) => {
@@ -61,7 +73,6 @@ function StudentDashboard({ onLogout }) {
     }, 2000);
   };
 
-  // ========== बदला हुआ हिस्सा: renderModalContent ==========
   const renderModalContent = () => {
     switch (modalType) {
       case 'mentor':
@@ -99,25 +110,17 @@ function StudentDashboard({ onLogout }) {
             </div>
           </>
         );
-      
-      case 'counseling': // नया केस
+      case 'counseling':
         return <CounselingServices />;
-      
-      case 'motivational': // नया केस
+      case 'motivational':
         return <MotivationalHub />;
-
-      // ========== नया केस: specific_mentor ==========
       case 'specific_mentor':
-        // यह नया SpecificMentorForm कंपोनेंट दिखाएगा और उसे subject और onClose props पास करेगा
         return <SpecificMentorForm subject={specificSubject} onClose={closeModal} />;
-        
- 
-        
       default:
         return null;
     }
   };
-  
+
   return (
     <div className="dashboard-container student-dashboard-merged">
       <header className="dashboard-header">
@@ -130,7 +133,7 @@ function StudentDashboard({ onLogout }) {
         </div>
       </header>
 
-     <div className="stat-cards-container">
+      <div className="stat-cards-container">
         <div className="stat-card">
           <h2>My Courses</h2>
           <p className="highlight-text">{myStatus.courses}</p>
@@ -139,12 +142,27 @@ function StudentDashboard({ onLogout }) {
           <h2>Assignments Due</h2>
           <p className="highlight-text">{myStatus.assignmentsDue}</p>
         </div>
-        <div className="stat-card">
+        <div className="stat-card2 ">
+          
           <h2>Overall Grade</h2>
-          <p className="highlight-text">{myStatus.overallGrade}</p>
+          <p className="highlight-text ">{myStatus.overallGrade}</p>
         </div>
       </div>
-      
+
+      {/* ===== एनीमेशन के लिए बदला हुआ चार्ट्स सेक्शन ===== */}
+      <div className="charts-container" ref={chartsRef}>
+        {chartsAreVisible && (
+          <>
+            <div className="chart-card">
+              <SubjectBarChart subjectsData={myStatus.subjects} />
+            </div>
+            <div className="chart-card">
+              <AssignmentPieChart assignmentData={myStatus.assignmentsStats} />
+            </div>
+          </>
+        )}
+      </div>
+
       <div className="section-card">
         <h2>My Performance Snapshot</h2>
         <div className="performance-snapshot">
@@ -154,6 +172,7 @@ function StudentDashboard({ onLogout }) {
               {myStatus.status} {getStatusInfo(myStatus.status).label.split(' ')[1]}
             </span>
           </div>
+          
           <div className="snapshot-secondary">
             <div className="snapshot-item">
               <span className="snapshot-label">My Attendance</span>
@@ -166,7 +185,7 @@ function StudentDashboard({ onLogout }) {
           </div>
         </div>
       </div>
-      
+
       <div className="section-card">
         <h2>My Progress Tracker</h2>
         <ul className="progress-tracker-list">
@@ -183,26 +202,22 @@ function StudentDashboard({ onLogout }) {
         </ul>
       </div>
 
-
       <div className="support-grid">
         <div className="section-card">
-            <h2>Support & Resources</h2>
-            <ul className="support-list">
-                {/* ========== बदला हुआ हिस्सा: Buttons ========== */}
-                <li><button className="tool-btn" onClick={() => openModal('mentor')}>Connect with a Mentor</button></li>
-                <li><button className="tool-btn" onClick={() => openModal('counseling')}>Counseling Services</button></li>
-                <li><button className="tool-btn" onClick={() => openModal('motivational')}>Motivational Hub</button></li>
-            </ul>
+          <h2>Support & Resources</h2>
+          <ul className="support-list">
+            <li><button className="tool-btn" onClick={() => openModal('mentor')}>Connect with a Mentor</button></li>
+            <li><button className="tool-btn" onClick={() => openModal('counseling')}>Counseling Services</button></li>
+            <li><button className="tool-btn" onClick={() => openModal('motivational')}>Motivational Hub</button></li>
+          </ul>
         </div>
 
-            {/* ========== बदला हुआ डायनामिक 'Need Help' सेक्शन ========== */}
-        {/* यह सेक्शन केवल तभी दिखाई देगा जब subjectNeedingHelp में कोई विषय होगा */}
         {subjectNeedingHelp && (
           <div className="need-help-section">
             <h3>Need Help?</h3>
             <p>Your performance in <strong>{subjectNeedingHelp.name}</strong> needs attention. Click below to get help.</p>
-            <button 
-              className="action-btn connect-mentor" 
+            <button
+              className="action-btn connect-mentor"
               onClick={() => openSpecificMentorModal(subjectNeedingHelp.name)}
             >
               Connect with {subjectNeedingHelp.name} Mentor
@@ -210,7 +225,6 @@ function StudentDashboard({ onLogout }) {
           </div>
         )}
       </div>
-
 
       {isModalOpen && (
         <Modal onClose={closeModal}>
