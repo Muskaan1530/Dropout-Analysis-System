@@ -80,7 +80,7 @@ const Services = () => {
   return (
     <div className="services-container">
       <div className="text-center mb-16">
-        <center><h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-400 mb-6">Our Services</h1></center>
+        <center><big><h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-400 mb-6">Our Services</h1></big></center>
         <p style={{ fontSize: '1.125rem', color: 'white' }}>
           We provide educators and students with the tools they need for a seamless, data-driven learning experience. Our approach focuses on simplicity, transparency, and early intervention.
         </p>

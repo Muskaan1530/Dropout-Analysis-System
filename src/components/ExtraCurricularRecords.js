@@ -120,7 +120,7 @@ function ExtraCurricularRecords({ setCurrentPage }) {
   return (
     <div className="extracurricular-page-container">
       <div className="extracurricular-page-header">
-        <h1>Fee Collection & Reports</h1>
+        <h1>Extra Curricular Records</h1>
         <button className="back-btn" onClick={() => setCurrentPage('AdminDashboard')}>Back</button>
       </div>
 

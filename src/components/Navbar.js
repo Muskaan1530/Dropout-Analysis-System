@@ -14,50 +14,45 @@ function Navbar({ setCurrentPage }) {
       <ul className="desktop-menu">
         <li>
           <button style = {{
-    padding: '8px 15px',
+    padding: '8px 10px',
     borderRadius: '5px',
     backgroundColor: '#facc15',
-    border: '1px solid #facc15',
     color: 'black',
     cursor: 'pointer',
   }} onClick={() => setCurrentPage('Home')}>Home</button>
         </li>
         <li>
           <button style = {{
-    padding: '8px 15px',
+    padding: '8px 10px',
     borderRadius: '5px',
     backgroundColor: '#facc15',
-    border: '1px solid #facc15',
     color: 'black',
     cursor: 'pointer',
   }} onClick={() => setCurrentPage('About Us')}>About</button>
         </li>
         <li>
           <button style = {{
-    padding: '8px 15px',
+    padding: '8px 10px',
     borderRadius: '5px',
     backgroundColor: '#facc15',
-    border: '1px solid #facc15',
     color: 'black',
     cursor: 'pointer',
   }} onClick={() => setCurrentPage('Services')}>Services</button>
         </li>
         <li>
           <button style = {{
-    padding: '8px 15px',
+    padding: '8px 10px',
     borderRadius: '5px',
     backgroundColor: '#facc15',
-    border: '1px solid #facc15',
     color: 'black',
     cursor: 'pointer',
   }} onClick={() => setCurrentPage('Chatbot')}>Chatbot</button>
         </li>
         <li>
           <button style = {{
-    padding: '8px 15px',
+    padding: '8px 10px',
     borderRadius: '5px',
     backgroundColor: '#facc15',
-    border: '1px solid #facc15',
     color: 'black',
     cursor: 'pointer',
   }} onClick={() => setCurrentPage('Contact Us')}>Contact</button>
@@ -65,10 +60,9 @@ function Navbar({ setCurrentPage }) {
       </ul>
 
       <button style = {{
-    padding: '8px 15px',
+    padding: '8px 10px',
     borderRadius: '5px',
     backgroundColor: '#facc15',
-    border: '1px solid #facc15',
     color: 'black',
     cursor: 'pointer',
   }} className="menu-btn" onClick={() => setIsOpen(!isOpen)}>
