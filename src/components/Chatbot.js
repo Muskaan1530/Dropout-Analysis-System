@@ -8,7 +8,8 @@ const Chatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const API_KEY = "AIzaSyAFKhOjlfZc4v7Y2IZo5kz934va9mSjYWo"; // Canvas will automatically provide this
+  // Load API Key from environment variable
+  const API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
   
   // Website context to ground the chatbot's knowledge
@@ -31,25 +32,16 @@ const Chatbot = () => {
 
   useEffect(scrollToBottom, [messages]);
 
-  const getFromCache = (key) => {
-    const cachedData = localStorage.getItem('chatbotCache');
-    if (cachedData) {
-      const cache = JSON.parse(cachedData);
-      return cache[key];
-    }
-    return null;
-  };
-
-  const saveToCache = (key, value) => {
-    const cachedData = localStorage.getItem('chatbotCache');
-    const cache = cachedData ? JSON.parse(cachedData) : {};
-    cache[key] = value;
-    localStorage.setItem('chatbotCache', JSON.stringify(cache));
-  };
-
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (input.trim() === '') return;
+
+    // Check if the API key is available before sending
+    if (!API_KEY) {
+        const errorMessage = { text: "Error: API Key is not configured. Please set REACT_APP_GEMINI_API_KEY in your .env.local file.", sender: 'bot' };
+        setMessages((prevMessages) => [...prevMessages, errorMessage]);
+        return;
+    }
 
     const userMessageText = input.trim();
     const userMessage = { text: userMessageText, sender: 'user' };
@@ -57,20 +49,8 @@ const Chatbot = () => {
     setInput('');
     setIsLoading(true);
 
-    const cachedResponse = getFromCache(userMessageText);
-    if (cachedResponse) {
-      setTimeout(() => {
-        setMessages((prevMessages) => [...prevMessages, cachedResponse]);
-        setIsLoading(false);
-      }, 500);
-      return;
-    }
-
     try {
-      const prompt = `
-        ${websiteContext}
-        User Message: "${userMessageText}"
-        Response:`;
+      const prompt = `${websiteContext} User Message: "${userMessageText}" Response:`;
 
       const payload = {
         contents: [{ parts: [{ text: prompt }] }],
@@ -91,15 +71,10 @@ const Chatbot = () => {
       }
 
       const result = await response.json();
-      const botResponseFull = result.candidates?.[0]?.content?.parts?.[0]?.text;
+      const botResponseText = result.candidates?.[0]?.content?.parts?.[0]?.text;
       
-      const sentimentMatch = botResponseFull.match(/Sentiment:\s*(POSITIVE|NEGATIVE|NEUTRAL)/i);
-      const sentiment = sentimentMatch ? sentimentMatch[1].toUpperCase() : 'NEUTRAL';
-      const botText = botResponseFull.replace(/Sentiment:\s*(POSITIVE|NEGATIVE|NEUTRAL)/i, '').trim();
-
-      const botMessage = { text: botText, sender: 'bot', sentiment: sentiment };
+      const botMessage = { text: botResponseText, sender: 'bot' };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
-      saveToCache(userMessageText, botMessage);
 
     } catch (error) {
       console.error("Failed to fetch response:", error);
